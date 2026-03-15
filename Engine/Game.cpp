@@ -21,7 +21,11 @@
 #include "MainWindow.h"
 #include "Game.h"
 #include "SpriteCodex.h"
+<<<<<<< Updated upstream
 #include <assert.h>
+=======
+#include "assert.h"
+>>>>>>> Stashed changes
 
 Game::Game( MainWindow& wnd )
 	:
@@ -72,10 +76,17 @@ void Game::UpdateModel()
 			}
 			else
 			{
+<<<<<<< Updated upstream
 				if( e.GetType() == Mouse::Event::Type::LPress )
 				{
 					DestroyField();
 					state = State::SelectionMenu;
+=======
+				if (e.GetType() == Mouse::Event::Type::LPress) 
+				{
+					state = State::SelectionMenu;
+					DestroyField();
+>>>>>>> Stashed changes
 				}
 			}
 		}
@@ -85,6 +96,7 @@ void Game::UpdateModel()
 			switch( s )
 			{
 			case SelectionMenu::Size::Small:
+<<<<<<< Updated upstream
 				CreateField( 8,4,5 );
 				state = State::Memesweeper;
 				break;
@@ -94,6 +106,17 @@ void Game::UpdateModel()
 				break;
 			case SelectionMenu::Size::Large:
 				CreateField( 24,16,45 );
+=======
+				CreateField(smallW, smallH, smallM);
+				state = State::Memesweeper;
+				break;
+			case SelectionMenu::Size::Medium:
+				CreateField(mediumW, mediumH, mediumM);
+				state = State::Memesweeper;
+				break;
+			case SelectionMenu::Size::Large:
+				CreateField(largeW, largeH, largeM);
+>>>>>>> Stashed changes
 				state = State::Memesweeper;
 				break;
 			}
@@ -101,14 +124,25 @@ void Game::UpdateModel()
 	}
 }
 
+<<<<<<< Updated upstream
 void Game::CreateField( int width,int height,int nMemes )
 {
 	assert( pField == nullptr );
 	pField = new MemeField( gfx.GetRect().GetCenter(),width,height,nMemes );
+=======
+void Game::CreateField(int width, int height, int nMemes)
+{
+	assert(pField == nullptr);
+	pField = new MemeField(gfx.GetRect().GetCenter(), width, height, nMemes);
+>>>>>>> Stashed changes
 }
 
 void Game::DestroyField()
 {
+<<<<<<< Updated upstream
+=======
+	pField->FreeResources();
+>>>>>>> Stashed changes
 	delete pField;
 	pField = nullptr;
 }
@@ -116,7 +150,11 @@ void Game::DestroyField()
 void Game::ComposeFrame()
 {
 	if( state == State::Memesweeper )
+<<<<<<< Updated upstream
 	{
+=======
+	{	
+>>>>>>> Stashed changes
 		pField->Draw( gfx );
 		if( pField->GetState() == MemeField::State::Winrar )
 		{

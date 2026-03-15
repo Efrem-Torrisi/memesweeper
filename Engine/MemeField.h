@@ -38,13 +38,18 @@ private:
 		int nNeighborMemes = -1;
 	};
 public:
+<<<<<<< Updated upstream
 	MemeField( const Vei2& center,int width,int height,int nMemes );
 	~MemeField();
+=======
+	MemeField( const Vei2& center,int width, int height, int nMemes );
+>>>>>>> Stashed changes
 	void Draw( Graphics& gfx ) const;
 	RectI GetRect() const;
 	void OnRevealClick( const Vei2& screenPos );
 	void OnFlagClick( const Vei2& screenPos );
 	State GetState() const;
+	void FreeResources();
 private:
 	void RevealTile( const Vei2& gridPos );
 	Tile& TileAt( const Vei2& gridPos );
@@ -53,8 +58,13 @@ private:
 	int CountNeighborMemes( const Vei2& gridPos );
 	bool GameIsWon() const;
 private:
+<<<<<<< Updated upstream
 	int width;
 	int height;
+=======
+	int width = 8;
+	int height = 6;
+>>>>>>> Stashed changes
 	static constexpr int borderThickness = 10;
 	static constexpr Color borderColor = Colors::Blue;
 	Sound sndLose = Sound( L"spayed.wav" );

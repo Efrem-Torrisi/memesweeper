@@ -43,6 +43,8 @@ public:
 private:
 	void ComposeFrame();
 	void UpdateModel();
+	void CreateField(int width, int height, int nMemes );
+	void DestroyField();
 	/********************************/
 	/*  User Functions              */
 	void CreateField( int width,int height,int nMemes );
@@ -56,5 +58,17 @@ private:
 	MemeField* pField = nullptr;
 	SelectionMenu menu;
 	State state = State::SelectionMenu;
+	static constexpr int smallW = 8;
+	static constexpr int smallH = 6;
+	static constexpr int smallM = 5;
+
+	static constexpr int mediumW = 14;
+	static constexpr int mediumH = 7;
+	static constexpr int mediumM = 15;
+
+	static constexpr int largeW = 24;
+	static constexpr int largeH = 16;
+	static constexpr int largeM = 45;
+	
 	/********************************/
 };
